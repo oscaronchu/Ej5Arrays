@@ -44,6 +44,16 @@ public class Empresa {
         Fecha fhoy=new Fecha();
         System.out.println("\t\t\tInforme de factura");
         System.out.println("Fecha: "+fhoy.fechaCompletaLetra());
-        System.out.println("Nueva linea");
+        System.out.println("CIF \t NOMBRE \t FECHA FACTURA \t IMPORTE BRUTO \t FECHA VENCIMIENTO \t IMPORTE NETO");
+        for(int ncli=0; ncli<clientes.length;ncli++){
+            Fecha vencimiento= new Fecha(clientes[ncli].getFechaFra().getDia(),clientes[ncli].getFechaFra().getMes(),clientes[ncli].getFechaFra().getAnno());
+            vencimiento.calcularVencimiento(clientes[ncli].getDiasVen());
+            System.out.println(clientes[ncli].getCif());
+            System.out.println("\t"+clientes[ncli].getNombre());
+            System.out.println("\t"+clientes[ncli].getFechaFra().fechaCompleta());
+            System.out.println("\t"+clientes[ncli].getImporte());
+            System.out.println("\t" + vencimiento.fechaCompleta());
+            
+        }
     }
 }
